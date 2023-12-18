@@ -12,6 +12,7 @@
 git clone https://github.com/infern397/RKIS-8.git
 cd RKIS-8
 psql -U postgres -c "CREATE DATABASE furniture_bd;"
+activemq start
 sh mvnw package
 java -jar target/mvc-0.0.1-SNAPSHOT.jar
 ```
@@ -35,4 +36,3 @@ _Пример вывода сообщений в консоль_\
 
 ![img.png](images/template.png)
 _Изменение в шаблоне_\
-Демонстрация работы клиента.
