@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding furniture</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="~{furniture/header :: header}"></div>
+<div class="container mt-5">
+    <form th:action="@{/furniture}" th:method="POST" th:object="${furniture}">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}">
+            <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        </div>
+        <div class="mb-3">
+            <label for="descr" class="form-label">Description</label>
+            <textarea class="form-control" id="descr" rows="3" th:field="*{description}"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" th:field="*{price}" step="0.01">
+            <div class="text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</div>
+        </div>
+        <div class="mb-3">
+            <label for="weight" class="form-label">Weight</label>
+            <input type="number" class="form-control" id="weight" th:field="*{weight}" step="0.01">
+            <div class="text-danger" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}"></div>
+        </div>
+        <div class="mb-3">
+            <label for="color" class="form-label">Color</label>
+            <input type="text" class="form-control" id="color" th:field="*{color}">
+            <div class="text-danger" th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</div>
+</body>
+</html>
